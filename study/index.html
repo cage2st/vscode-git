@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ESTgames 고객지원 센터에서 게임 이용에 필요한 도움을 받아보세요.">
+  <title>ESTgames 고객지원 센터</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #111c3b; --blue: #315de7; --sky: #eaf1ff; --yellow: #ffd447; --text: #1c2641; --muted: #6d7690; --line: #dce2ef; --white: #fff; --sans: 'Manrope', 'Noto Sans KR', sans-serif; --mono: 'DM Mono', monospace; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--text); background: #f8faff; font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: auto; }
+    header { background: var(--white); border-bottom: 1px solid var(--line); }
+    nav { height: 78px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; gap: 12px; align-items: center; font-weight: 900; letter-spacing: -.04em; font-size: 20px; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); border-radius: 11px; font-size: 12px; font-family: var(--mono); font-weight: 500; }
+    .nav-links { display: flex; gap: 32px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .nav-links a:hover { color: var(--blue); }
+    .hero { overflow: hidden; color: var(--white); background: var(--navy); }
+    .hero-inner { min-height: 390px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+    .hero-inner::after { content: ''; position: absolute; width: 310px; height: 310px; right: 10%; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; box-shadow: 0 0 0 45px rgba(255,255,255,.025), 0 0 0 90px rgba(255,255,255,.02); }
+    .eyebrow { position: relative; z-index: 1; margin: 0 0 20px; color: var(--yellow); font: 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    h1 { position: relative; z-index: 1; max-width: 660px; margin: 0; font-size: clamp(42px, 6vw, 72px); line-height: 1.12; letter-spacing: -.06em; }
+    h1 strong { color: var(--yellow); font-weight: 900; }
+    .hero-copy { position: relative; z-index: 1; max-width: 470px; margin: 23px 0 0; color: #c8d1ed; line-height: 1.7; font-size: 15px; }
+    main { padding: 70px 0 100px; }
+    .top-grid { display: grid; grid-template-columns: 1fr 1.75fr; gap: 50px; align-items: start; }
+    .section-label { margin: 0 0 12px; color: var(--blue); font: 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+    h2 { margin: 0; font-size: 31px; letter-spacing: -.05em; line-height: 1.25; }
+    .search { position: relative; margin-bottom: 24px; }
+    .search input { width: 100%; height: 58px; padding: 0 52px 0 20px; border: 1px solid var(--line); border-radius: 12px; color: var(--text); background: var(--white); outline: none; box-shadow: 0 7px 22px rgba(36, 58, 112, .05); }
+    .search input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(49,93,231,.12); }
+    .search-icon { position: absolute; right: 19px; top: 17px; color: var(--blue); font-size: 22px; }
+    .categories { display: flex; flex-wrap: wrap; gap: 8px; }
+    .category { padding: 9px 13px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 700; }
+    .category.active, .category:hover { border-color: var(--blue); color: var(--white); background: var(--blue); }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq { border-bottom: 1px solid var(--line); background: var(--white); }
+    .faq summary { display: flex; justify-content: space-between; gap: 20px; padding: 20px 18px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 700; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--blue); font-size: 22px; font-weight: 400; }
+    .faq[open] summary::after { content: '−'; }
+    .answer { padding: 0 48px 21px 18px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .empty { display: none; padding: 32px; border: 1px dashed var(--line); color: var(--muted); text-align: center; }
+    .contact-band { margin-top: 86px; padding: 34px; display: flex; justify-content: space-between; align-items: center; gap: 30px; border-radius: 18px; color: var(--white); background: var(--blue); }
+    .contact-band p { margin: 7px 0 0; color: #dce5ff; font-size: 14px; }
+    .contact-band h2 { font-size: 26px; }
+    .contact-button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 9px; color: var(--navy); background: var(--yellow); font-size: 14px; font-weight: 800; white-space: nowrap; }
+    .contact-button:hover { background: #ffe47f; }
+    .modal { display: none; position: fixed; z-index: 5; inset: 0; place-items: center; padding: 20px; background: rgba(10, 18, 42, .65); }
+    .modal.open { display: grid; }
+    .modal-card { width: min(520px, 100%); max-height: 90vh; overflow: auto; padding: 30px; border-radius: 16px; background: var(--white); }
+    .modal-head { display: flex; justify-content: space-between; margin-bottom: 24px; }
+    .close { border: 0; color: var(--muted); background: none; font-size: 26px; cursor: pointer; }
+    label { display: block; margin: 15px 0 7px; font-size: 13px; font-weight: 700; }
+    input, select, textarea { width: 100%; padding: 12px 13px; border: 1px solid var(--line); border-radius: 8px; outline: none; }
+    textarea { min-height: 115px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); }
+    .submit { width: 100%; margin-top: 20px; padding: 13px; border: 0; border-radius: 8px; color: var(--white); background: var(--navy); cursor: pointer; font-weight: 800; }
+    footer { padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); font: 11px var(--mono); }
+    @media (max-width: 760px) { .wrap { width: min(100% - 34px, 1120px); } .nav-links { gap: 15px; font-size: 12px; } .hero-inner { min-height: 440px; } .hero-inner::after { right: -190px; } .top-grid { grid-template-columns: 1fr; gap: 42px; } main { padding: 48px 0 70px; } .contact-band { display: block; padding: 26px; } .contact-button { margin-top: 22px; } }
+    @media (max-width: 430px) { .nav-links a:nth-child(2) { display: none; } .brand { font-size: 17px; } h1 { font-size: 42px; } }
+  </style>
+</head>
+<body>
+  <header><nav class="wrap"><a class="brand" href="#top"><span class="brand-mark">EST</span> ESTgames</a><div class="nav-links"><a href="#faq">자주 묻는 질문</a><a href="#contact">1:1 문의</a><a href="mailto:support@estgames.com">고객센터 메일</a></div></nav></header>
+  <section class="hero" id="top"><div class="wrap hero-inner"><p class="eyebrow">ESTgames customer support</p><h1>게임을 더 즐겁게,<br><strong>문제는 빠르게</strong> 해결해 드립니다.</h1><p class="hero-copy">계정, 결제, 게임 이용 중 궁금한 점을 찾아보세요.<br>필요한 답을 찾지 못했다면 언제든 문의해 주세요.</p></div></section>
+  <main>
+    <div class="wrap top-grid" id="faq">
+      <div><p class="section-label">Help center / 01</p><h2>무엇을<br>도와드릴까요?</h2><p style="color:var(--muted);line-height:1.7;font-size:14px;margin-top:18px">가장 많이 찾는 질문을 분야별로 모았습니다. 키워드로 검색하거나 카테고리를 선택해 보세요.</p><div class="categories" aria-label="문의 분야"><button class="category active" data-category="all">전체</button><button class="category" data-category="account">계정</button><button class="category" data-category="payment">결제</button><button class="category" data-category="game">게임 이용</button></div></div>
+      <div><div class="search"><input id="faq-search" type="search" placeholder="질문을 검색해 보세요" aria-label="자주 묻는 질문 검색"><span class="search-icon" aria-hidden="true">⌕</span></div><div class="faq-list">
+        <details class="faq" data-category="account"><summary>로그인할 수 없어요. 어떻게 해야 하나요?</summary><div class="answer">게임 실행 화면의 ‘계정 찾기’를 이용해 주세요. 문제가 계속되면 가입하신 이메일과 이용 중인 게임명을 함께 문의해 주시면 확인해 드립니다.</div></details>
+        <details class="faq" data-category="account"><summary>닉네임이나 계정 정보를 변경할 수 있나요?</summary><div class="answer">게임 내 설정에서 변경 가능한 항목을 확인할 수 있습니다. 계정 보안을 위해 본인 확인이 필요한 경우 추가 안내가 진행됩니다.</div></details>
+        <details class="faq" data-category="payment"><summary>결제했는데 아이템이 지급되지 않았어요.</summary><div class="answer">결제 완료 후 게임을 재실행해 주세요. 24시간이 지나도 지급되지 않는다면 결제 일시, 주문번호, 게임명과 함께 문의해 주세요.</div></details>
+        <details class="faq" data-category="payment"><summary>환불은 어떻게 신청하나요?</summary><div class="answer">결제한 스토어의 환불 정책에 따라 신청할 수 있습니다. 문의 접수 시 주문번호와 결제 플랫폼을 알려주시면 절차를 안내해 드립니다.</div></details>
+        <details class="faq" data-category="game"><summary>게임 실행 중 오류나 강제 종료가 발생해요.</summary><div class="answer">게임과 기기의 운영체제를 최신 버전으로 업데이트하고 재실행해 주세요. 오류 화면을 캡처해 문의해 주시면 원인 확인에 도움이 됩니다.</div></details>
+        <details class="faq" data-category="game"><summary>점검 일정과 업데이트 내용은 어디서 확인하나요?</summary><div class="answer">각 게임의 공식 홈페이지와 공지사항에서 최신 점검 일정 및 업데이트 내용을 확인할 수 있습니다.</div></details>
+      </div><p class="empty" id="empty">검색 결과가 없습니다. 다른 키워드로 검색하거나 1:1 문의를 이용해 주세요.</p></div>
+    </div>
+    <div class="wrap"><div class="contact-band" id="contact"><div><p class="section-label" style="color:var(--yellow)">Help center / 02</p><h2>찾는 답이 없으신가요?</h2><p>문의 내용을 남겨주시면 순차적으로 답변해 드립니다.</p></div><button class="contact-button" id="open-modal">1:1 문의 접수 <span aria-hidden="true">→</span></button></div></div>
+  </main>
+  <footer><div class="wrap">© ESTgames. All rights reserved. <span style="float:right">고객센터 운영시간 평일 10:00 - 18:00</span></div></footer>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-card"><div class="modal-head"><h2 id="modal-title">1:1 문의 접수</h2><button class="close" id="close-modal" aria-label="문의창 닫기">×</button></div><form id="contact-form"><label for="email">답변받을 이메일</label><input id="email" type="email" required placeholder="example@email.com"><label for="game">게임 선택</label><select id="game"><option>게임을 선택해 주세요</option><option>카발 온라인</option><option>카발 모바일</option><option>기타</option></select><label for="message">문의 내용</label><textarea id="message" required placeholder="문의 내용을 자세히 입력해 주세요"></textarea><button class="submit" type="submit">문의 등록하기</button></form></div></div>
+  <script>
+    const search = document.querySelector('#faq-search');
+    const faqs = [...document.querySelectorAll('.faq')];
+    const empty = document.querySelector('#empty');
+    let selectedCategory = 'all';
+    function filterFaqs() { const query = search.value.trim().toLowerCase(); let visible = 0; faqs.forEach(faq => { const matches = faq.textContent.toLowerCase().includes(query) && (selectedCategory === 'all' || faq.dataset.category === selectedCategory); faq.style.display = matches ? 'block' : 'none'; if (matches) visible += 1; }); empty.style.display = visible ? 'none' : 'block'; }
+    search.addEventListener('input', filterFaqs);
+    document.querySelectorAll('.category').forEach(button => button.addEventListener('click', () => { document.querySelector('.category.active').classList.remove('active'); button.classList.add('active'); selectedCategory = button.dataset.category; filterFaqs(); }));
+    const modal = document.querySelector('#modal');
+    document.querySelector('#open-modal').addEventListener('click', () => { modal.classList.add('open'); document.querySelector('#email').focus(); });
+    document.querySelector('#close-modal').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', event => { if (event.target === modal) modal.classList.remove('open'); });
+    document.querySelector('#contact-form').addEventListener('submit', event => { event.preventDefault(); alert('문의가 접수되었습니다. 입력하신 이메일로 답변드리겠습니다.'); modal.classList.remove('open'); event.target.reset(); });
+  </script>
+</body>
+</html>

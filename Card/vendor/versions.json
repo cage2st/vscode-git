@@ -1,0 +1,8 @@
+{
+  "tesseract.js": "7.0.0",
+  "tesseract.js-core": "7.0.0",
+  "pdfjs-dist": "6.3.289",
+  "@tesseract.js-data/eng": "1.0.0",
+  "@tesseract.js-data/kor": "1.0.0",
+  "exceljs": "4.4.0"
+}
